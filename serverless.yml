@@ -1,0 +1,18 @@
+service:
+  name: EmployeeListApi
+  
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+  
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: sa-east-1
+
+functions:

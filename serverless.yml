@@ -4,11 +4,20 @@ service:
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-dynamodb-local
 
 custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+  dynamodb:
+    stages:
+      - dev
+      - local
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
   
 provider:
   name: aws
@@ -16,3 +25,20 @@ provider:
   region: sa-east-1
 
 functions:
+
+resources:
+  Resources:
+    dbEmployees:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: employees
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        AttributeDefinitions: 
+            - AttributeName: id
+              AttributeType: S
+        KeySchema:
+            - AttributeName: id
+              KeyType: HASH
+            

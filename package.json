@@ -1,5 +1,5 @@
 {
-  "name": "serverless-userslist",
+  "name": "serverless-employeelist",
   "version": "1.0.0",
   "description": "Serverless aws-nodejs-typescript template",  
   "scripts": {

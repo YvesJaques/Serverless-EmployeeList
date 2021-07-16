@@ -1,5 +1,4 @@
-service:
-  name: EmployeeListApi
+service: EmployeeListApi
   
 plugins:
   - serverless-webpack

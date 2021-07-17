@@ -52,6 +52,13 @@ functions:
           path: /viewEmployee/{id}
           method: GET
           cors: true
+  updateEmployee:
+    handler: src/modules/employees/useCases/updateEmployeeProfile/updateEmployeeController.handle
+    events:
+      - http:
+          path: /updateEmployee/{id}
+          method: PATCH
+          cors: true
 
 resources:
   Resources:

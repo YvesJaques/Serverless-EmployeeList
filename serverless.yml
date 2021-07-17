@@ -45,6 +45,13 @@ functions:
           path: /deleteEmployee/{id}
           method: DELETE
           cors: true
+  viewEmployee:
+    handler: src/modules/employees/useCases/viewEmployeeProfile/viewEmployeeController.handle
+    events:
+      - http:
+          path: /viewEmployee/{id}
+          method: GET
+          cors: true
 
 resources:
   Resources:

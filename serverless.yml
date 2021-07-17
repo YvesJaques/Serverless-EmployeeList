@@ -24,6 +24,13 @@ provider:
   region: sa-east-1
 
 functions:
+  createEmployee:
+    handler: src/modules/employees/useCases/createEmployeeProfile/createEmployeeController.handle
+    events:
+      - http:
+          path: /createEmployee
+          method: POST
+          cors: true
 
 resources:
   Resources:

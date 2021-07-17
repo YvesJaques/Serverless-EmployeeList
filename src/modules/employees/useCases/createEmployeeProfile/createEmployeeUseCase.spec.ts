@@ -1,14 +1,15 @@
-import { document } from "../../../../utils/dynamodbClient"
+import { clearMocks, document } from "../../../../utils/dynamodbClient"
 import { CreateEmployeeUseCase } from "./createEmployeeUseCase";
-
-
 
 it('Should be able to create an employee', async () => {
         const createEmployeeUseCase = new CreateEmployeeUseCase();
 
+        //clear previous mocks
+        await clearMocks();
+                        
         await createEmployeeUseCase.execute({
             name: 'John Doe',
-            age: '30',
+            age: 30,
             role: 'Developer' 
         });
       
@@ -16,5 +17,7 @@ it('Should be able to create an employee', async () => {
 
         expect(response.Items[0]).toHaveProperty("id");
 
-        expect(response.Items[0]).toHaveProperty("name", "John");
-    });
+        expect(response.Items[0]).toHaveProperty("name", "John Doe");
+        expect(response.Items[0]).toHaveProperty("age", 30);
+        expect(response.Items[0]).toHaveProperty("role", "Developer");
+});

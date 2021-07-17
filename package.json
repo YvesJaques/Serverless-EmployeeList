@@ -6,7 +6,7 @@
     "dev": "serverless offline",
     "deploy": "sls deploy -v",
     "dynamo:start": "serverless dynamodb start",
-    "test": "jest"
+    "test": "jest -i"
   },
   "dependencies": {
     "@middy/core": "^1.5.2",

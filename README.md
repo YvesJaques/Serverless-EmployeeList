@@ -3,6 +3,7 @@
  O Serverless-EmployeeList é uma infraestrutura na AWS que utiliza uma lambda para registrar dados sobre funcionários de uma empresa em um banco de dados DynamoDB.
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Serverless-EmployeeList&uri=https%3A%2F%2Fraw.githubusercontent.com%2FYvesJaques%2FServerless-EmployeeList%2Fmain%2FEmployee_list_Insomnia_2021-07-17.json)
+#### No Insomnia você pode escolher os ambientes Dev(local) ou Prod(AWS) para testar
 
 # :wrench: Tecnologias utilizadas
 

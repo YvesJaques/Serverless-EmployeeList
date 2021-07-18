@@ -15,7 +15,7 @@ class UpdateEmployeeUseCase {
         employeeName,
         role,        
     }: IRequest): Promise<void>{
-        const employeeExists = await document.scan({
+        let employeeExists = await document.scan({
             TableName: "employees",
             FilterExpression: "id = :id",
             ExpressionAttributeValues: {
@@ -24,6 +24,16 @@ class UpdateEmployeeUseCase {
         }).promise();
         
         if(!employeeExists.Items[0]) throw new AppError("Employee doesn't exist!");
+
+        employeeExists = await document.scan({
+            TableName: "employees",
+            FilterExpression: "employeeName = :employeeName",
+            ExpressionAttributeValues: {
+                ":employeeName": employeeName
+            }
+        }).promise();
+        
+        if(employeeExists.Items[0]) throw new AppError("An employee with this name already exists!");
 
         await document
         .put({

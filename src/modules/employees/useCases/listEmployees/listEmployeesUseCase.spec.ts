@@ -1,12 +1,16 @@
 import { clearMocks, document } from "../../../../utils/dynamodbClient"
 import { ListEmployeesUseCase } from "./listEmployeesUseCase";
 
-it('Should be able to list all employees', async () => {
-        const listEmployeesUseCase = new ListEmployeesUseCase();
+let listEmployeesUseCase: ListEmployeesUseCase;
 
+describe("Create Employee", () => {
+    beforeEach(async () => {
         //clear previous mocks
         await clearMocks();
-                        
+        listEmployeesUseCase = new ListEmployeesUseCase();
+    });
+
+    it('Should be able to list all employees', async () => {                            
         await document.put({
             TableName: "employees",
             Item: {
@@ -32,4 +36,5 @@ it('Should be able to list all employees', async () => {
         expect(response[0]).toHaveProperty("id");        
         expect(response[1]).toHaveProperty("id");        
         expect(response.length).toEqual(2);
-});
+    });
+})

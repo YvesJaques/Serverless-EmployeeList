@@ -6,7 +6,7 @@
     "dev": "serverless offline",
     "deploy": "sls deploy -v",
     "dynamo:start": "serverless dynamodb start",
-    "test": "jest --runInBand --detectOpenHandles"
+    "test": "jest --runInBand --detectOpenHandles -i"
   },
   "dependencies": {
     "@middy/core": "^1.5.2",

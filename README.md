@@ -45,7 +45,7 @@ $ npm install
 # Inicie DynamoDB
 $ yarn dynamo:start
 
-# Rode o projeto
+# Abra outro terminal e rode o projeto
 $ yarn dev
 Ou:
 $ npm run dev
@@ -53,6 +53,7 @@ $ npm run dev
 <br />
 
 # Rotas locais
+### *Executar estas rotas no Insomnia ou Postman enquanto o DynamoDB e o projeto estiverem ativos*
 ## Listar funcionários
 * `GET http://localhost:3000/dev/listEmployees`
 ## Cadastrar funcionários
@@ -97,6 +98,7 @@ Request url parameters example:
 ```
 
 # Rotas AWS
+### *Executar estas rotas no Insomnia ou Postman(O projeto não precisa estar ativo na máquina local)*
 ## Listar funcionários
 * `GET https://19q3d8fc79.execute-api.sa-east-1.amazonaws.com/dev/listEmployees`
 ## Cadastrar funcionários
@@ -141,7 +143,9 @@ Request url parameters example:
 ```
 
 # Testes
-[Jest](https://jestjs.io/) Foi utilizado para os testes, para rodá-los execute:
+### *Atenção: O DynamoDB precisa estar ativo na máquina local*
+### *Os dados das tabelas são limpos previamente a cada teste*
+### O [Jest](https://jestjs.io/) foi utilizado para os testes, para rodá-los execute:
 ```
 $ yarn
 $ yarn dynamo:start
@@ -155,6 +159,7 @@ $ npm run test
 ```
 
 # Deploy
+### Realizando seu próprio deploy o sistema irá disponibilizar um Endpoint diferente do utilizado nas rotas mencionadas antes
 ```
 $ npm install
 $ npx sls deploy
@@ -163,7 +168,6 @@ Ou:
 ``` 
 $ yarn
 $ yarn deploy
-# Realizando seu próprio deploy o sistema irá disponibilizar um Endpoint diferente do utilizado aqui
 ```
 
 <p align="center">Feito por <a href="https://www.linkedin.com/in/yves-morais-jaques/" target="_blank">Yves Morais Jaques</a></p>

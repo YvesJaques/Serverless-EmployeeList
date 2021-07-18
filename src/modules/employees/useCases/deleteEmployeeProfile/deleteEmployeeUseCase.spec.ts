@@ -11,7 +11,7 @@ it('Should be able to delete an employee profile', async () => {
             TableName: "employees",
             Item: {
                 id: '1',
-                name: 'John Doe',
+                employeeName: 'John Doe',
                 age: 30,
                 role: 'Developer' 
             }

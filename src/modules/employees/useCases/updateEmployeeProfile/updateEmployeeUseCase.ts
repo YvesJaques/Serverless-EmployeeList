@@ -4,7 +4,7 @@ class UpdateEmployeeUseCase {
     async execute({
         id,
         age,
-        name,
+        employeeName,
         role,        
     }): Promise<void>{
         await document
@@ -13,7 +13,7 @@ class UpdateEmployeeUseCase {
             Item: {                 
                 id,
                 age,
-                name,
+                employeeName,
                 role,                
             },
         })    

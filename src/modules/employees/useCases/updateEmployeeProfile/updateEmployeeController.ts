@@ -2,14 +2,14 @@ import { UpdateEmployeeUseCase } from "./updateEmployeeUseCase";
 
 export const handle = async (event) => {    
     const { id } = event.pathParameters;
-    const { age, name, role } = JSON.parse(event.body);      
+    const { age, employeeName, role } = JSON.parse(event.body);      
 
     const updateEmployeeUseCase = new UpdateEmployeeUseCase();
 
     await updateEmployeeUseCase.execute({        
         id,
         age,
-        name,
+        employeeName,
         role, 
     });
 

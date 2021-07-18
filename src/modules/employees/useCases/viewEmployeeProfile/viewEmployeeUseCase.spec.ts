@@ -11,7 +11,7 @@ it('Should be able to view an employee profile', async () => {
             TableName: "employees",
             Item: {
                 id: '1',
-                name: 'John Doe',
+                employeeName: 'John Doe',
                 age: 30,
                 role: 'Developer' 
             }
@@ -20,7 +20,7 @@ it('Should be able to view an employee profile', async () => {
         const response = await viewEmployeeUseCase.execute({ id: "1"});
 
         expect(response).toHaveProperty("id");        
-        expect(response).toHaveProperty("name", "John Doe");
+        expect(response).toHaveProperty("employeeName", "John Doe");
         expect(response).toHaveProperty("age", 30);
         expect(response).toHaveProperty("role", "Developer");
 });

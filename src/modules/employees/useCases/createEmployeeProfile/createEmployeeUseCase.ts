@@ -4,7 +4,7 @@ import { document } from "../../../../utils/dynamodbClient"
 class CreateEmployeeUseCase {
     async execute({
         age,
-        name,
+        employeeName,
         role,        
     }): Promise<void>{
         await document
@@ -13,7 +13,7 @@ class CreateEmployeeUseCase {
             Item: {                 
                 id: uuidv4(),
                 age,
-                name,
+                employeeName,
                 role,                
             },
         })    

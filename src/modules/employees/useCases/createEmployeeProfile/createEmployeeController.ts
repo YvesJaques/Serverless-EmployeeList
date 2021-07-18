@@ -1,13 +1,13 @@
 import { CreateEmployeeUseCase } from "./createEmployeeUseCase";
 
 export const handle = async (event) => {    
-    const { age, name, role } = JSON.parse(event.body);      
+    const { age, employeeName, role } = JSON.parse(event.body);      
 
     const createEmployeeUseCase = new CreateEmployeeUseCase();
 
     await createEmployeeUseCase.execute({
         age,
-        name,
+        employeeName,
         role, 
     });
 

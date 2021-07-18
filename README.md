@@ -62,7 +62,7 @@ Request body example:
 ```json
 {	
 	"age": 30,
-	"name": "John Doe",
+	"employeeName": "John Doe",
 	"role": "Analista"
 }
 ```
@@ -84,7 +84,7 @@ Request body example:
 ```json
 {	
 	"age": 27,
-	"name": "John Marsh",
+	"employeeName": "John Marsh",
 	"role": "Desenvolvedor"
 }
 ```
@@ -106,7 +106,7 @@ Request body example:
 ```json
 {	
 	"age": 30,
-	"name": "John Doe",
+	"employeeName": "John Doe",
 	"role": "Analista"
 }
 ```
@@ -128,7 +128,7 @@ Request body example:
 ```json
 {	
 	"age": 27,
-	"name": "John Marsh",
+	"employeeName": "John Marsh",
 	"role": "Desenvolvedor"
 }
 ```

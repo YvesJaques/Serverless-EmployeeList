@@ -11,7 +11,7 @@ it('Should be able to update an employee profile', async () => {
             TableName: "employees",
             Item: {
                 id: '1',
-                name: 'John Doe',
+                employeeName: 'John Doe',
                 age: 30,
                 role: 'Developer' 
             }
@@ -19,7 +19,7 @@ it('Should be able to update an employee profile', async () => {
               
         await updateEmployeeUseCase.execute({
             id: '1',
-            name: 'John Marsh',
+            employeeName: 'John Marsh',
             age: 31,
             role: 'Tester' 
         })
@@ -27,6 +27,6 @@ it('Should be able to update an employee profile', async () => {
         const response = await document.scan({TableName: 'employees'}).promise();        
 
         expect(response.Items[0]).toHaveProperty("id", "1");
-        expect(response.Items[0]).toHaveProperty("name", "John Marsh");
+        expect(response.Items[0]).toHaveProperty("employeeName", "John Marsh");
         expect(response.Items.length).toEqual(1);        
 });

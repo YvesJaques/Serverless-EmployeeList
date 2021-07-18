@@ -8,7 +8,7 @@ it('Should be able to create an employee', async () => {
         await clearMocks();
                         
         await createEmployeeUseCase.execute({
-            name: 'John Doe',
+            employeeName: 'John Doe',
             age: 30,
             role: 'Developer' 
         });
@@ -17,7 +17,7 @@ it('Should be able to create an employee', async () => {
 
         expect(response.Items[0]).toHaveProperty("id");
 
-        expect(response.Items[0]).toHaveProperty("name", "John Doe");
+        expect(response.Items[0]).toHaveProperty("employeeName", "John Doe");
         expect(response.Items[0]).toHaveProperty("age", 30);
         expect(response.Items[0]).toHaveProperty("role", "Developer");
 });

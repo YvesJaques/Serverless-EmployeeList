@@ -11,7 +11,7 @@ it('Should be able to list all employees', async () => {
             TableName: "employees",
             Item: {
                 id: '1',
-                name: 'John Doe',
+                employeeName: 'John Doe',
                 age: 30,
                 role: 'Developer' 
             }
@@ -21,7 +21,7 @@ it('Should be able to list all employees', async () => {
             TableName: "employees",
             Item: {
                 id: '2',
-                name: 'Julia Marsh',
+                employeeName: 'Julia Marsh',
                 age: 37,
                 role: 'Manager' 
             }

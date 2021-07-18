@@ -1,19 +1,19 @@
 import { DeleteEmployeeUseCase } from "./deleteEmployeeUseCase";
 
-export const handle = async (event) => {    
-    const { id } = event.pathParameters;
+export const handle = async (event) => {
+  const { id } = event.pathParameters;
 
-    const deleteEmployeeUseCase = new DeleteEmployeeUseCase();
+  const deleteEmployeeUseCase = new DeleteEmployeeUseCase();
 
-    await deleteEmployeeUseCase.execute({ id });
+  await deleteEmployeeUseCase.execute({ id });
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            message: "Employee removed!",            
-        }),
-        headers: {
-            "Content-type": "application/json",
-        },
-    };
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: "Employee removed!",
+    }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  };
 };

@@ -1,5 +1,5 @@
 service: EmployeeListApi
-  
+
 plugins:
   - serverless-webpack
   - serverless-offline
@@ -17,7 +17,7 @@ custom:
       port: 8000
       inMemory: true
       migrate: true
-  
+
 provider:
   name: aws
   runtime: nodejs14.x
@@ -31,7 +31,6 @@ provider:
       Action:
         - s3:*
       Resource: "*"
-
 
 functions:
   createEmployee:
@@ -47,7 +46,7 @@ functions:
       - http:
           path: /listEmployees
           method: GET
-          cors: 
+          cors:
   deleteEmployee:
     handler: src/modules/employees/useCases/deleteEmployeeProfile/deleteEmployeeController.handle
     events:
@@ -79,10 +78,9 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
-        AttributeDefinitions: 
-            - AttributeName: id
-              AttributeType: S
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
         KeySchema:
-            - AttributeName: id
-              KeyType: HASH
-            
+          - AttributeName: id
+            KeyType: HASH

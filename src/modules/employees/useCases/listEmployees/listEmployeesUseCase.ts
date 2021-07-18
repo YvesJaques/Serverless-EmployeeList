@@ -1,15 +1,17 @@
-import { document } from "../../../../utils/dynamodbClient"
+import { document } from "../../../../utils/dynamodbClient";
 
 class ListEmployeesUseCase {
-    async execute() {
-        const response = await document.scan({
-            TableName: "employees",              
-        }).promise();
-        
-        const employees = response.Items;
+  async execute() {
+    const response = await document
+      .scan({
+        TableName: "employees",
+      })
+      .promise();
 
-        return employees;
-    }
-};
+    const employees = response.Items;
 
-export { ListEmployeesUseCase }
+    return employees;
+  }
+}
+
+export { ListEmployeesUseCase };

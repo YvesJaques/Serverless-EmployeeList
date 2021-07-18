@@ -1,30 +1,34 @@
 import { AppError } from "../../../../shared/errors/AppError";
-import { document } from "../../../../utils/dynamodbClient"
+import { document } from "../../../../utils/dynamodbClient";
 
 class ViewEmployeeUseCase {
-    async execute({ id }) {
-        const employeeExists = await document.scan({
-            TableName: "employees",
-            FilterExpression: "id = :id",
-            ExpressionAttributeValues: {
-                ":id": id
-            }
-        }).promise();
-        
-        if(!employeeExists.Items[0]) throw new AppError("Employee doesn't exist!");
+  async execute({ id }) {
+    const employeeExists = await document
+      .scan({
+        TableName: "employees",
+        FilterExpression: "id = :id",
+        ExpressionAttributeValues: {
+          ":id": id,
+        },
+      })
+      .promise();
 
-        const response = await document.scan({
-            TableName: "employees",
-            FilterExpression: "id = :id",
-            ExpressionAttributeValues: {
-                ":id": id
-            }
-        }).promise();
-        
-        const employee = response.Items[0];
+    if (!employeeExists.Items[0]) throw new AppError("Employee doesn't exist!");
 
-        return employee;
-    }
-};
+    const response = await document
+      .scan({
+        TableName: "employees",
+        FilterExpression: "id = :id",
+        ExpressionAttributeValues: {
+          ":id": id,
+        },
+      })
+      .promise();
 
-export { ViewEmployeeUseCase }
+    const employee = response.Items[0];
+
+    return employee;
+  }
+}
+
+export { ViewEmployeeUseCase };

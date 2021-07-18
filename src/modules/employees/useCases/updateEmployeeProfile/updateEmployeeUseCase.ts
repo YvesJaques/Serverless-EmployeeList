@@ -1,13 +1,20 @@
 import { AppError } from "../../../../shared/errors/AppError";
 import { document } from "../../../../utils/dynamodbClient"
 
+interface IRequest {
+    id: string;
+    employeeName: string,
+    role: string,
+    age: number,
+}
+
 class UpdateEmployeeUseCase {
     async execute({
         id,
         age,
         employeeName,
         role,        
-    }): Promise<void>{
+    }: IRequest): Promise<void>{
         const employeeExists = await document.scan({
             TableName: "employees",
             FilterExpression: "id = :id",
